@@ -1,27 +1,16 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const withAuth = require("../utils/auth");
-const { Post, User, Comment } = require("../models");
+const { Blog, User, Comment } = require("../models");
 const res = require("express/lib/response");
 
 router.get("/", withAuth, (req, res) => {
-  Post.findAll({
+  Blog.findAll({
     where: {
       // use the ID from the session
       user_id: req.session.user_id,
     },
-    attributes: [
-      "id",
-      "post_url",
-      "title",
-      "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-        ),
-        "vote_count",
-      ],
-    ],
+    attributes: ["id", "post_url", "title", "created_at"],
     include: [
       {
         model: Comment,
@@ -48,23 +37,12 @@ router.get("/", withAuth, (req, res) => {
     });
 });
 
-router.get("/edit:id", withAuth, (req, res) => {
-  Post.findOne({
+router.get("/edit/:id", withAuth, (req, res) => {
+  Blog.findOne({
     where: {
       id: req.params.id,
     },
-    attributes: [
-      "id",
-      "post_url",
-      "title",
-      "created_at",
-      [
-        sequelize.literal(
-          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-        ),
-        "vote_count",
-      ],
-    ],
+    attributes: ["id", "post_url", "title", "created_at"],
     include: [
       {
         model: Comment,
@@ -88,7 +66,7 @@ router.get("/edit:id", withAuth, (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-      res.render("edit-post", {
+      res.render("edit-blog", {
         post,
         loggedIn: true,
       });

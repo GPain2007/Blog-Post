@@ -5,7 +5,7 @@ async function commentFormHandler(event) {
     .querySelector('textarea[name="comment-body"]')
     .value.trim();
 
-  const quote_id = window.location.toString().split("/")[
+  const post_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
 
