@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Just Tech News</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
 
   <body>
     <div class="wrapper">
       <header>
         <h1>
-          <a href="/">Just Tech News</a>
+          <a href="/">Tech Blog</a>
         </h1>
         <nav>
           {{#if loggedIn}}
-            <a href="/dashboard">dashboard</a>
-            <button id="logout" class="btn-no-style">logout</button>
+            <a href="/dashboard">Dashboard</a>
+            <button id="logout" class="btn-no-style">Logout</button>
           {{else}}
-            <a href="/login">login</a>
-            <a href="/signup">signup</a>
+            <a href="/login">Login</a>
+            <a href="/signup">Signup</a>
           {{/if}}
         </nav>
       </header>
@@ -27,7 +27,7 @@
         {{{body}}}
       </main>
       <footer>
-        Thanks for visiting!
+        You are trying to Get your Blog on!
       </footer>
     </div>
     {{#if loggedIn}}
