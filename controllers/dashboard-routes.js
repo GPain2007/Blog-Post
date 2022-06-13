@@ -10,7 +10,7 @@ router.get("/", withAuth, (req, res) => {
       // use the ID from the session
       user_id: req.session.user_id,
     },
-    attributes: ["id", "blog_url", "title", "created_at"],
+    attributes: ["id", "blog_body", "title", "created_at"],
     include: [
       {
         model: Comment,
@@ -42,7 +42,7 @@ router.get("/edit/:id", withAuth, (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "blog_url", "title", "created_at"],
+    attributes: ["id", "blog_body", "title", "created_at"],
     include: [
       {
         model: Comment,

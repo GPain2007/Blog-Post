@@ -17,7 +17,7 @@ Blog.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    blog_url: {
+    blog_body: {
       type: DataTypes.STRING,
       allowNull: false,
     },

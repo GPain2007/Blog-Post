@@ -22,7 +22,7 @@ router.get("/:id", (req, res) => {
     include: [
       {
         model: Blog,
-        attributes: ["id", "title", "blog_url", "created_at"],
+        attributes: ["id", "title", "blog_body", "created_at"],
       },
       {
         model: Comment,

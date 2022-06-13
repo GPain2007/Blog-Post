@@ -137,11 +137,6 @@ main {
   margin: -1.5% 0 2% 0;
 }
 
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color 0.1s;
-}
-
 .upvote-btn:hover {
   background-color: #1f9c13;
 }
@@ -206,4 +201,22 @@ footer {
   padding: 30px 50px;
   width: 600px;
   max-width: 100%;
+}
+.blog-form {
+  margin-bottom: 5%;
+}
+
+.comment {
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+.comment:nth-child(odd) {
+  background-color: #fff5eb;
+}
+
+.comment .meta {
+  font-size: 90%;
+  margin-bottom: 0.5%;
+  opacity: 0.6;
 }
